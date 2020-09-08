@@ -31,9 +31,10 @@ def download():
         urllib.request.urlretrieve(path, f'{root}/{c}.npy')
     print("Data Downloaded !")
 
-def load(test_split = 0.2, max_items_per_class = 10000):
+def load(test_split = 0.2, max_items_per_class = 50000):
     """
-    Function to load the dataset as train and test
+    Function to load the dataset as train and test 
+        - Generally : max_items_per_class = 10000
     """
     print("Loading data....")
     root = 'data'
