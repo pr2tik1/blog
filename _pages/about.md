@@ -3,7 +3,8 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-<img align = "right" width="400" height="400" src ="profile-image.png" >
+
+![](profile-image.png)
 
 ## Namaste! 🙏 This is Pratik
 
