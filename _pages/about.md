@@ -5,8 +5,7 @@ image: /profile-image.png
 permalink: /about/
 ---
 
-<img align = "right" width="400" height="400" src ="/profile-image.png" >
-<img align = "right" width="400" height="400" src ="image/profile-img.jpeg" >
+<img align = "right" width="400" height="400" src ="./profile-image.png" >
 
 ## Namaste! 🙏 This is Pratik
 
