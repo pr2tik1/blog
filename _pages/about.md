@@ -4,15 +4,8 @@ title: About Me
 image: /profile-image.png
 permalink: /about/
 ---
-<<<<<<< HEAD
 
 ![](profile-image.png)
-||||||| 1d771fe
-<img align = "right" width="400" height="400" src ="profile-image.png" >
-=======
-
-<img align = "right" width="400" height="400" src ="./profile-image.png" >
->>>>>>> f3ccf0f2ba6f201d34d47a090ab2b705a3790973
 
 ## Namaste! 🙏 This is Pratik
 
