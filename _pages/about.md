@@ -18,6 +18,6 @@ Few fun things about me
 - 📖 Right now, I am reading : Thinking Fast and Slow, by Daniel Kahneman (Very Slowly though!).
 - 👨 You can know more about my programming behaviour at [Sourcerer](https://sourcerer.io/pr2tik1) 
 - 🌐 Also visit my [porfolio website](https://pr2tik1.github.io/) for complete background and contact.
-- 🤗 I also write blogs in Towards Data Science and Towards AI publications at Medium. [Check here](https://towardsdatascience.com/@pratikbaitha04)
+- 🤗 I also write blogs in Towards Data Science and Towards AI publications at Medium. [Check here](https://medium.com/@pratikbaitha04)
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)**.
