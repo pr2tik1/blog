@@ -76,10 +76,3 @@ def get_tsne(data, n_components = 2, n_images = None):
     tsne_data = tsne.fit_transform(data)
     return tsne_data
 
-def plot_confusion_matrix(labels, pred_labels):
-    """Plots Confusion Matrix"""
-    fig = plt.figure(figsize = (10, 10));
-    ax = fig.add_subplot(1, 1, 1);
-    cm = metrics.confusion_matrix(labels, pred_labels);
-    cm = metrics.ConfusionMatrixDisplay(cm, range(10));
-    cm.plot(values_format = 'd', cmap = 'Blues', ax = ax)
