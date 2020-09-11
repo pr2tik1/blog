@@ -34,13 +34,14 @@ url: "https://pr2tik1.github.io" # the base hostname & protocol for your site, e
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "/pk-blog" # the subpath of your site, e.g. "/blog".
+baseurl: "/blog" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
   social_links:
     twitter: Pratikpkb
     github: pr2tik1
+
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -72,7 +73,7 @@ include:
 # This specifies what badges are turned on by default for notebook posts.
 default_badges:
   github: false
-  binder: true
+  binder: false
   colab: true
 
 # Escape HTML in post descriptions
