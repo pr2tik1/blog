@@ -1,1 +1,1 @@
-Sitemap: https://pr2tik1.github.io/pk-blog/sitemap.xml
+Sitemap: https://pr2tik1.github.io/blog/sitemap.xml
