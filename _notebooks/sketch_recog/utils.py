@@ -50,7 +50,7 @@ def load(valid_split = 0.2, max_items_per_class = 50000):
     for idx, file in enumerate(class_names):
         data = np.load(f'{root}/{file}.npy')
         
-        test_data = data[max_items_per_class:max_items_per_class+10000,:] 
+        test_data = data[max_items_per_class:max_items_per_class+20000,:] 
         data = data[0: max_items_per_class, :]
         
         labels = np.full(data.shape[0], idx)
@@ -79,7 +79,7 @@ def load(valid_split = 0.2, max_items_per_class = 50000):
     x_test = np.reshape(x_test, (x_test.shape[0], 28, 28))
     x_test = np.reshape(x_test, (x_test.shape[0], 28, 28))
     
-    x = 255 - np.reshape(x, (x.shape[0], 28, 28))
+    x = np.reshape(x, (x.shape[0], 28, 28))
 
     #separate into training and testing 
     valid_size  = int(x.shape[0]/100*(valid_split*100))
