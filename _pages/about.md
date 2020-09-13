@@ -7,7 +7,7 @@ permalink: /about/
 
 ![profile](profile-image.png)
 
-## Hello! 🙏 This is Pratik Kumar
+## Hello! This is Pratik Kumar
 
 I am an ECE engineering graduate(Batch of 2020) from India. I am passionate about deep learning and data science. I primarly work in Computer Vision, Machine Learning, Deep Learning, Data Visualizations and Data Science. 
 
@@ -17,11 +17,12 @@ I love to play football. During my bachelors, I led my college football team as 
 
 ![team](team.jpg)
 
-<div align="center"> My Team 💙 NITRR-FC</div>
+<div align="center"> My Team - NITRR-FC 💙</div>
 
 <br>
 
-### *Do you like my work? or Want to contact/connect with me? or Do you want to hire me?*
+#### Do you like my work? or Want to contact/connect with me? or Do you want to hire me?
+
 - Please visit my [portfolio website](https://pr2tik1.github.io/) for complete background and contact details. 
 - Gmail : pr2tik1@gmail.com 
 - LinkedIn: [Profile](https://www.linkedin.com/in/pratik-kumar04/)
