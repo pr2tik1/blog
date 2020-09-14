@@ -9,7 +9,7 @@ permalink: /about/
 
 ## Hello! This is Pratik Kumar
 
-I am an ECE engineering graduate(Batch of 2020) from India. I am passionate about deep learning and data science. I primarly work in Computer Vision, Machine Learning, Deep Learning, Data Visualizations and Data Science. 
+I am an ECE engineering graduate(Batch of 2020) from India. I am passionate about deep learning and data science. I primarily work in Computer Vision, Machine Learning, Deep Learning, Data Visualizations and Data Science. 
 
 I am fascinated by the abilities of machines to learn and on the same time I am also curious about wonderful capabilities of human brain. Here on this website, I usually write and share my work on deep learning and data science topics. You can also view my blogs on Medium (check [here](https://medium.com/@pratikbaitha04)). Currently I am looking for full time or part time opportunities in data science or deep learning.
 
