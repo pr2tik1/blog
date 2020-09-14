@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -636,23 +636,26 @@ Shape of training dataset ndarray:
 <a class="anchor" href="#Custom-Architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Architecture<a class="anchor-link" href="#Custom-Architecture"> </a>
 </h4>
 <hr>
-<p>Here I will be using slightly change version of LeNet. The original <strong>LeNet-5 architecture</strong> consists of two sets of convolutional and pooling layers, followed by a flattening convolutional layer, then two fully-connected layers and finally a gaussian connections.</p>
+<p>Here I will be using slightly different version of LeNet. The original <strong>LeNet-5 architecture</strong> consists of two sets of convolutional and pooling layers, followed by a flattening layer, then two fully-connected layers and finally a gaussian connections. Our architecture does not consist the final guassian layer but a softmax layer as it is good for multi-class classification.</p>
 <p>Our neural network model's architecture:</p>
 <ul>
 <li>
-<p><strong>First Layer</strong> : The input for model is a 28×28 grayscale image which passes through the first convolutional layer with 24 feature maps or filters having size 5×5.</p>
+<p><strong>First Layer</strong> : The input for model is a 28×28 grayscale image which passes through the first convolutional layer with 24 feature maps or filters having size 5×5 each.</p>
 </li>
 <li>
-<p><strong>Second Layer</strong>: Then the model applies max pooling layer or sub-sampling layer with a filter size 2×2 and a stride of two.</p>
+<p><strong>Second Layer</strong>: Then this layer applies max pooling with a filter size 2×2 and a stride of two.</p>
 </li>
 <li>
-<p><strong>Third Layer</strong>: Next, there is a second convolution with 24 output channels, 5×5 kernel, stride of 1. Further send to ReLU.</p>
+<p><strong>Third Layer</strong>: Next, there is a second convolution again with 24 output channels, 5×5 kernel, and stride of 1. After this, it is further send to ReLU.</p>
 </li>
 <li>
 <p><strong>Fourth Layer</strong>: The fourth layer is again an max pooling layer with filter size 2×2 and a stride of 2.</p>
 </li>
 <li>
 <p><strong>Sixth Layer</strong>: The sixth layer is a fully connected layer of dimensions (24x4×4)×50, followed by ReLU.</p>
+</li>
+<li>
+<p>Before sending it to the next layer, the tensors must be unenrolled or set to shape of a vector to push them into fully connected layers.</p>
 </li>
 <li>
 <p><strong>Output Layer</strong>: Finally, there is a fully connected softmax output layer ŷ with 50×10 dimension, followed by softmax layer. The final output layer ends with 10 output neurons because we have 10 classes to classify the dataset.</p>
