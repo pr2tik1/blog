@@ -1,31 +1,22 @@
 ---
 layout: page
-title: About Me
 image: /profile-image.png
 permalink: /about/
 ---
 
 ![profile](profile-image.png)
 
-## Hello! This is Pratik Kumar
+## About
 
-I am an ECE engineering graduate(Batch of 2020) from India. I am passionate about deep learning and data science. I primarily work in Computer Vision, Machine Learning, Deep Learning, Data Visualizations and Data Science. 
-
-I am fascinated by the abilities of machines to learn and on the same time I am also curious about wonderful capabilities of human brain. Here on this website, I usually write and share my work on deep learning and data science topics. You can also view my blogs on Medium (check [here](https://medium.com/@pratikbaitha04)). Currently I am looking for full time or part time opportunities in data science or deep learning.
-
-I love to play football. During my bachelors, I led my college football team as a captain. 
-
-![team](team.jpg)
-
-<div align="center"> My Team - NITRR-FC 💙</div>
+Pratik Kumar is a NIT Raipur graduate, having received his Bachelor’s in Electronics and Communication Engineering in June, 2020. He was formerly at Bayer Cropscience (Monsanto Holdings Pvt. Ltd., Bengaluru) as a data science intern. As a learner and developer, he has done extensive projects that range from optimization of microwave patch antennas to computer vision. You can view his blogs published on Medium, [here](https://medium.com/@pr2tik1). Currently, he is looking for opportunities in data science and deep learning.
 
 <br>
 
-#### Do you like my work? or Want to contact/connect with me? or Do you want to hire me?
+### Contact me
 
-- Please visit my [portfolio website](https://pr2tik1.github.io/) for complete background and contact details. 
-- Gmail : pr2tik1@gmail.com 
-- LinkedIn: [Profile](https://www.linkedin.com/in/pratik-kumar04/)
+- [Portfolio website](https://pr2tik1.github.io/)  
+- pr2tik1@gmail.com 
 
+---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)**.
+© Pratik Kumar, 2020. These posts are meant to be used for educational purposes. Excerpts and links from this site may be used, provided that full and clear credit is given to Pratik Kumar with appropriate and specific direction to the original content. This website is powered by **[fastpages](https://github.com/fastai/fastpages)**.
