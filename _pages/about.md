@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Pratik Kumar
 image: /profile-image.png
 permalink: /about/
 ---
