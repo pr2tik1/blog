@@ -8,4 +8,8 @@
 Visit here: https://pr2tik1.github.io/blog/
 Portfolio : https://pr2tik1.github.io/
 
+
+# ATTENTION!
+If you plan to use this repo as your personal blog page then please follow instructions originally shared here https://github.com/fastai/fastpages . Also, if you fork this repo, please remove my work(Notebooks/Posts) and put yours.
+
 _powered by [fastpages](https://github.com/fastai/fastpages)_
