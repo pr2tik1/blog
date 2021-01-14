@@ -116,6 +116,18 @@
 
 .highlight .il { color: #099; }
 
+/*
+// override defalt minima variables 
+
+// width of the content area
+// can be set as "px" or "%"
+$content-width:    900px;
+$on-palm:          700px;
+$on-laptop:        900px;
+$on-medium:        900px;
+$on-large:         1100px;
+
+*/
 html { font-size: 16px; }
 
 /** Reset some basic elements */
@@ -180,9 +192,9 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 .highlighter-rouge .highlight { background: #eeeeff; }
 
 /** Wrapper */
-.wrapper { max-width: calc(900px - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
+.wrapper { max-width: calc(80% - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
 
-@media screen and (min-width: 1100px) { .wrapper { max-width: calc(900px - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
+@media screen and (min-width: 90%) { .wrapper { max-width: calc(80% - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
 
 /** Clearfix */
 .wrapper:after { content: ""; display: table; clear: both; }
@@ -205,14 +217,14 @@ table th { background-color: #f0f0f0; border: 1px solid #e0e0e0; }
 
 table td { border: 1px solid #e8e8e8; }
 
-@media screen and (max-width: 900px) { table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; -ms-overflow-style: -ms-autohiding-scrollbar; } }
+@media screen and (max-width: 90%) { table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; -ms-overflow-style: -ms-autohiding-scrollbar; } }
 
 /** Site header */
 .site-header { border-top: 5px solid #424242; border-bottom: 1px solid #e8e8e8; min-height: 55.95px; line-height: 54px; position: relative; }
 
 .site-title { font-size: 1.625rem; font-weight: 300; letter-spacing: -1px; margin-bottom: 0; float: left; }
 
-@media screen and (max-width: 700px) { .site-title { padding-right: 45px; } }
+@media screen and (max-width: 90%) { .site-title { padding-right: 45px; } }
 
 .site-title, .site-title:visited { color: #424242; }
 
@@ -234,7 +246,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .site-nav .page-link:not(:last-child) { margin-right: 0; }
 
-@media screen and (min-width: 900px) { .site-nav { position: static; float: right; border: none; background-color: inherit; } .site-nav label[for="nav-trigger"] { display: none; } .site-nav .menu-icon { display: none; } .site-nav input ~ .trigger { display: block; } .site-nav .page-link { display: inline; padding: 0; margin-left: auto; } .site-nav .page-link:not(:last-child) { margin-right: 20px; } }
+@media screen and (min-width: 90%) { .site-nav { position: static; float: right; border: none; background-color: inherit; } .site-nav label[for="nav-trigger"] { display: none; } .site-nav .menu-icon { display: none; } .site-nav input ~ .trigger { display: block; } .site-nav .page-link { display: inline; padding: 0; margin-left: auto; } .site-nav .page-link:not(:last-child) { margin-right: 20px; } }
 
 /** Site footer */
 .site-footer { border-top: 1px solid #e8e8e8; padding: 30px 0; }
@@ -253,9 +265,9 @@ table td { border: 1px solid #e8e8e8; }
 
 .footer-col-3 { width: calc(100% - (30px / 2)); }
 
-@media screen and (min-width: 1100px) { .footer-col-1 { width: calc(35% - (30px / 2)); } .footer-col-2 { width: calc(20% - (30px / 2)); } .footer-col-3 { width: calc(45% - (30px / 2)); } }
+@media screen and (min-width: 90%) { .footer-col-1 { width: calc(35% - (30px / 2)); } .footer-col-2 { width: calc(20% - (30px / 2)); } .footer-col-3 { width: calc(45% - (30px / 2)); } }
 
-@media screen and (min-width: 900px) { .footer-col-wrapper { display: flex; } .footer-col { width: calc(100% - (30px / 2)); padding: 0 15px; } .footer-col:first-child { padding-right: 15px; padding-left: 0; } .footer-col:last-child { padding-right: 0; padding-left: 15px; } }
+@media screen and (min-width: 90%) { .footer-col-wrapper { display: flex; } .footer-col { width: calc(100% - (30px / 2)); padding: 0 15px; } .footer-col:first-child { padding-right: 15px; padding-left: 0; } .footer-col:last-child { padding-right: 0; padding-left: 15px; } }
 
 /** Page content */
 .page-content { padding: 30px 0; flex: 1 0 auto; }
@@ -277,7 +289,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-title, .post-content h1 { font-size: 2.625rem; letter-spacing: -1px; line-height: 1.15; }
 
-@media screen and (min-width: 1100px) { .post-title, .post-content h1 { font-size: 2.625rem; } }
+@media screen and (min-width: 90%) { .post-title, .post-content h1 { font-size: 2.625rem; } }
 
 .post-content { margin-bottom: 30px; }
 
@@ -287,11 +299,11 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-content h2 { font-size: 1.75rem; }
 
-@media screen and (min-width: 1100px) { .post-content h2 { font-size: 2rem; } }
+@media screen and (min-width: 90%) { .post-content h2 { font-size: 2rem; } }
 
 .post-content h3 { font-size: 1.375rem; }
 
-@media screen and (min-width: 1100px) { .post-content h3 { font-size: 1.625rem; } }
+@media screen and (min-width: 90%) { .post-content h3 { font-size: 1.625rem; } }
 
 .post-content h4 { font-size: 1.25rem; }
 
@@ -319,7 +331,7 @@ table td { border: 1px solid #e8e8e8; }
 .pagination li div.pager-edge { color: #e8e8e8; border: 1px dashed; }
 
 /** Grid helpers */
-@media screen and (min-width: 1100px) { .one-half { width: calc(50% - (30px / 2)); } }
+@media screen and (min-width: 90%) { .one-half { width: calc(50% - (30px / 2)); } }
 
 /*-----------------------------------*/
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
