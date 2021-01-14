@@ -127,14 +127,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#1.-Introduction">1. Introduction </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#1.1-Importing-libraries">1.1 Importing libraries </a></li>
+<li class="toc-entry toc-h3"><a href="#1.2-Data">1.2 Data </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#1.2.1-Downloading-Data">1.2.1 Downloading Data </a></li>
+<li class="toc-entry toc-h5"><a href="#1.2.2.-Loading-Data">1.2.2. Loading Data </a></li>
+<li class="toc-entry toc-h5"><a href="#1.2.3.-Visualizing-Data">1.2.3. Visualizing Data </a></li>
+<li class="toc-entry toc-h5"><a href="#1.2.4.-Reshaping-and-Normalizing">1.2.4. Reshaping and Normalizing </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1.2-Data">1.2 Data </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#1.2.1-Downloading-Data">1.2.1 Downloading Data </a></li>
-<li class="toc-entry toc-h4"><a href="#1.2.2.-Loading-Data">1.2.2. Loading Data </a></li>
-<li class="toc-entry toc-h4"><a href="#1.2.3.-Visualizing-Data">1.2.3. Visualizing Data </a></li>
-<li class="toc-entry toc-h4"><a href="#1.2.4.-Reshaping-and-Normalizing">1.2.4. Reshaping and Normalizing </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#2.-Deep-Learning">2. Deep Learning </a>
@@ -248,9 +248,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2-Data">
+<h3 id="1.2-Data">
 <a class="anchor" href="#1.2-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2 <strong>Data</strong><a class="anchor-link" href="#1.2-Data"> </a>
-</h2>
+</h3>
 <hr>
 <p>The <i>Quick Draw Dataset</i> is a collection of 50 million drawings across 345 categories, contributed by players of the game Quick, Draw! The bitmap dataset contains these drawings converted from vector format into <b>28x28 grayscale images</b>. The drawings were captured as timestamped vectors, tagged with metadata including what the player was asked to draw and in which country the player was located. This is available in tensorflow_datasets within 'quickdraw_bitmap'. We will be loading only <b>10</b> classes from the 345 categories.</p>
 
@@ -260,9 +260,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.2.1-Downloading-Data">
+<h5 id="1.2.1-Downloading-Data">
 <a class="anchor" href="#1.2.1-Downloading-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2.1 Downloading Data<a class="anchor-link" href="#1.2.1-Downloading-Data"> </a>
-</h4>
+</h5>
 <hr>
 <p>Downloading the dataset as .npy files and storing them in 'data' folder. Make sure the 'data' folder directory is not already present. In case already downloaded, comment the 'download()' function call. The dataset is quite big, downloading will however take time based upon user's internet speed. (Click to expand)</p>
 
@@ -293,9 +293,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.2.2.-Loading-Data">
+<h5 id="1.2.2.-Loading-Data">
 <a class="anchor" href="#1.2.2.-Loading-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2.2. Loading Data<a class="anchor-link" href="#1.2.2.-Loading-Data"> </a>
-</h4>
+</h5>
 <hr>
 <p>The dataset is split into train and test of the following sizes. I have considered the following 10 classes for the purpose of Multi-Class Classification. The size of actual data is more than 30 GB. Following is a short summary about data, (Click to expand)</p>
 
@@ -355,9 +355,9 @@ Classes :  ['cloud', 'sun', 'pants', 'umbrella', 'table', 'ladder', 'eyeglasses'
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.2.3.-Visualizing-Data">
+<h5 id="1.2.3.-Visualizing-Data">
 <a class="anchor" href="#1.2.3.-Visualizing-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2.3. Visualizing Data<a class="anchor-link" href="#1.2.3.-Visualizing-Data"> </a>
-</h4>
+</h5>
 <hr>
 <p>Each of the images are of 28x28 dimension. Let's visualize the 10 examples from 10 classes. (Click to expand)</p>
 
@@ -428,9 +428,9 @@ Classes :  ['cloud', 'sun', 'pants', 'umbrella', 'table', 'ladder', 'eyeglasses'
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.2.4.-Reshaping-and-Normalizing">
+<h5 id="1.2.4.-Reshaping-and-Normalizing">
 <a class="anchor" href="#1.2.4.-Reshaping-and-Normalizing" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2.4. Reshaping and Normalizing<a class="anchor-link" href="#1.2.4.-Reshaping-and-Normalizing"> </a>
-</h4>
+</h5>
 <hr>
 <p>Here the following operations are carried out:</p>
 <ul>
