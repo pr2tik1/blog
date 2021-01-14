@@ -192,9 +192,9 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 .highlighter-rouge .highlight { background: #eeeeff; }
 
 /** Wrapper */
-.wrapper { max-width: calc(80% - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
+.wrapper { max-width: calc(900px - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
 
-@media screen and (min-width: 1100px) { .wrapper { max-width: calc(80% - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
+@media screen and (min-width: 1100px) { .wrapper { max-width: calc(900px - (30px * 2)); padding-right: 30px; padding-left: 30px; } }
 
 /** Clearfix */
 .wrapper:after { content: ""; display: table; clear: both; }
@@ -224,7 +224,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .site-title { font-size: 1.625rem; font-weight: 300; letter-spacing: -1px; margin-bottom: 0; float: left; }
 
-@media screen and (max-width: 70%) { .site-title { padding-right: 45px; } }
+@media screen and (max-width: 700px) { .site-title { padding-right: 45px; } }
 
 .site-title, .site-title:visited { color: #424242; }
 
