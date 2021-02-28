@@ -14,10 +14,11 @@
 <link rel="canonical" href="https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html" />
 <meta property="og:url" content="https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html" />
 <meta property="og:site_name" content="Pratik’s Blog" />
+<meta property="og:image" content="https://pr2tik1.github.io/blog/images/2.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-28T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html","@type":"BlogPosting","headline":"AlexNet Implementation using PyTorch (CNN Series-01)","dateModified":"2021-02-28T00:00:00-06:00","datePublished":"2021-02-28T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Implemetation of neural network architecture, AlexNet in PyTorch. Authors of the paper are, Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton.","@context":"https://schema.org"}</script>
+{"url":"https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html","@type":"BlogPosting","headline":"AlexNet Implementation using PyTorch (CNN Series-01)","dateModified":"2021-02-28T00:00:00-06:00","datePublished":"2021-02-28T00:00:00-06:00","image":"https://pr2tik1.github.io/blog/images/2.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/pytorch/cnn/2021/02/28/CNN-Series-AlexNet-Implementation.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Implemetation of neural network architecture, AlexNet in PyTorch. Authors of the paper are, Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pr2tik1.github.io/blog/feed.xml" title="Pratik's Blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -86,7 +87,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      5 min read
     
 </span></p>
 
@@ -205,6 +206,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#2.1.-About-Model" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1. <strong>About Model</strong><a class="anchor-link" href="#2.1.-About-Model"> </a>
 </h3>
 <hr>
+<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/AlexNet-1.png" alt=""></p>
 <p>The model has 5 Convolution layers and 3 fully connected layers, i.e. total 8 layers. Following is a general overview of layers.</p>
 <ul>
 <li>
@@ -226,27 +228,12 @@ window.onload = wrap_img;
 <li>
 <p>Dimensions, Feature Maps, Kernels, Strides and Padding of the layers:</p>
 </li>
+<li>
+<p>A table of layers and their characterstics,</p>
+</li>
 </ul>
-<center>
+<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/AlexNet.png" alt=""></p>
 
-| Layers |  Dimensions  |  Feature_Maps  |  Kernel_Size  |  Stride  |  Padding  | Activation Function |
-| --- | --- | --- | --- | --- | --- | --- |
-| Input Layer | 227x227x3 | - | - | - | - | - |
-| Convolution(1) | 55x55x96 | 96 | 11x11 | 4 | 0 | ReLU |
-| Max Pool(1) | 27x27x96 | 96 | 3x3 | 2 | - | ReLU |
-| Norm(1) | 27x27x96 | 96 | - | - | | ReLU |
-| Convolution(2) | 27x27x256 | 256 | 5x5 | 1 | 2 | ReLU |
-| Max Pool(2) | 13x13x256 | 256 | 3x3 | 2 | - | ReLU |
-| Norm(2) | 13x13x256 | 256 | - | - | - | ReLU |
-| Convolution(3) | 13x13x384 | 384 | 3x3 | 1 | 1 | ReLU |
-| Convolution(4) | 13x13x384 | 384 | 3x3 | 1 | 1 | ReLU |
-| Convolution(5) | 13x13x256 | 256 | 3x3 | 1 | 1 | ReLU |
-| Max Pool(3) | 6x6x256 | 256 | 2 | - | - | ReLU |
-| FC(1) | 4096 | - | - | - | - | ReLU |
-| FC(2) | 4096 | - | - | - | - | ReLU |
-| FC(3) | 1000 | - | - | - | - | Softmax |
-
-</center>
 </div>
 </div>
 </div>
@@ -267,55 +254,47 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">alexnet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    AlexNet model</span>
-
-<span class="sd">    Input size: 227x227x3</span>
-<span class="sd">    Convolution Layers: 5</span>
-<span class="sd">    Fully Connected Layers : 3 </span>
-<span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">alexnet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="c1">#Layer 1</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="c1">#Convolution</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span><span class="c1">#Activation Function</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">LocalResponseNorm</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="c1">#Normalisation</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="c1">#MaxPooling</span>
-            <span class="c1">#Layer 2</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">LocalResponseNorm</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-            <span class="c1">#Layer 3</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">256</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="c1">#Layer 4</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">384</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="c1">#Layer 5</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">384</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>   
         <span class="p">)</span>
 
-        <span class="c1">#self.avgpool = nn.AdaptiveAvgPool2d((6,6))</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="c1">#Layer 6</span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">6</span><span class="p">),</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="c1">#Layer 7            </span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="c1">#Layer 8            </span>
+            
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span><span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="c1">#x = self.avgpool(x)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span>
@@ -433,9 +412,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -447,7 +423,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-    </details>
 <div class="output_wrapper">
 <div class="output">
 
