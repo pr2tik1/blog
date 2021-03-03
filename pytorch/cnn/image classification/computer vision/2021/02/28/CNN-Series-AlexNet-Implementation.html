@@ -155,7 +155,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#1.-Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>Introduction</strong><a class="anchor-link" href="#1.-Introduction"> </a>
 </h2>
 <hr>
-<p>In this notebook, we will be implementing AlexNet from scratch using PyTorch. This is first from the blogs in CNN-Series. Here we will be implementing common CNN architectures (like ResNet,VGG) in PyTorch. This series of posts aims to develop a deep understanding of the Convolutional neural networks that are widely used. To refer more details about the model and framework please follow mentioned official links in References section.</p>
+<p>In this notebook, we will be implementing AlexNet from scratch using PyTorch. This is first from the series of blogs on Convolutional Neural Networks(CNN). Here we will be implementing common CNN architectures (like ResNet,VGG) in PyTorch from scratch. This series aims to develop a deep understanding of the Convolutional neural networks that are widely used. To know more details about the model and framework please follow mentioned official links in 'References' section.</p>
 
 </div>
 </div>
@@ -169,7 +169,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
-
+    
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">from</span> <span class="nn">torchsummary</span> <span class="kn">import</span> <span class="n">summary</span>
@@ -189,14 +189,14 @@ window.onload = wrap_img;
 <a class="anchor" href="#2.-Deep-Convolutional-Neural-Network" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. <strong>Deep Convolutional Neural Network</strong><a class="anchor-link" href="#2.-Deep-Convolutional-Neural-Network"> </a>
 </h2>
 <hr>
-<p>After the first CNN, <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf">LeNet-5</a>(1998), introduced by Yann LeCun, the next major deep CNN is considered to be AlexNet. It is famously known for its victory in 2012 ImageNet LSVRC-2012 competition. AlexNet is one of those early architectures that was trained on GPUs. The network is similar to LeNet but has more filters, convolutions, max-pooling, dropout, data augmentations, ReLU activations and SGD momentum.</p>
-<p>The authors used the ImageNet dataset as provided in the competition. This dataset consisted of over 15 million labelled high-resolution images belonging roughly 22,000 categories. The network showed, for the first time, that the features obtained by learning can go beyond manually-designed features, breaking the previous paradigm in computer vision. Before this, traditional machine learning models like SVM outperformed CNNs.</p>
-<p>Two of the limitations for general image classification in everyday life was handled by introduction of AlexNet. Following are the problems faced and solution implied from AlexNet paper:</p>
+<p>After the first CNN, <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf">LeNet-5</a>, introduced by Yann LeCun, the next major deep neural network is considered to be AlexNet. It is famously known for its victory in 2012 ImageNet LSVRC-2012 competition. AlexNet is one of those early architectures that was trained on GPUs. The network is similar to LeNet but has more filters, convolutions, max-pooling, dropout, data augmentations, ReLU activations and SGD momentum. These operations have a significant effect over the performance of a CNN.</p>
+<p>The authors of AlexNet used the ImageNet dataset as provided in the competition(LSVRC-2012). This dataset consisted of over 15 million labelled high-resolution images belonging roughly 22,000 categories. The network showed, for the first time, that the features obtained by learning can go beyond manually-designed features, breaking the previous paradigm in computer vision. Before this, traditional machine learning models like SVM outperformed CNN.</p>
+<p>It was founf that, AlexNet covered two of the limitations for general image classification in real world. Following are those problems faced and solution implied from AlexNet paper:</p>
 <ol>
-<li>Lack of computational resources - Training on GPU  </li>
-<li>Lack of robust dataset - Large Dataset (such as ImageNet dataset)</li>
+<li>Lack of computational resources - Training on parallel processing processors such as GPUs.  </li>
+<li>Lack of robust dataset - Using variety of images and large datasets (such as ImageNet dataset).</li>
 </ol>
-<p>Researchers used to train the models on datasets such as MNIST Handwritten digits which was not enough to cover the complete image classification task. Also, training on GPUs turned out to be very fast as compared to training on CPUs due to their parallel processing tehnique. These were important ingredients that were missing before AlexNet introduced it to deep learning world. Today almost every neural network architecture is trained on GPUs with even bigger datasets. AlexNet was the point in deep learning history that made a significant impact in growing of interest on CNNs.</p>
+<p>Researchers used to train the models on smaller datasets such as MNIST Handwritten digits which was not enough to cover the complete image classification task. Also, training on GPUs turned out to be very fast as compared to training on CPUs due to their parallel processing tehnique. These were important ingredients that were missing before AlexNet introduced it to deep learning world. Today almost every neural network architecture is trained on GPUs with large datasets. AlexNet was the point in deep learning history that made a significant impact in growing of interest in CNNs.</p>
 
 </div>
 </div>
@@ -242,6 +242,9 @@ window.onload = wrap_img;
 <h3 id="2.3-Coding-the-AlexNet-Model">
 <a class="anchor" href="#2.3-Coding-the-AlexNet-Model" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3 Coding the AlexNet Model<a class="anchor-link" href="#2.3-Coding-the-AlexNet-Model"> </a>
 </h3>
+<hr>
+<p>The alexnet class is divided into two subclasses: <strong>features</strong> and <strong>classifier</strong>. The <em>features subclass</em> has 5 convolution layers with pooling and normalisation operations. Here ReLU is used as activation function. The <em>classifier subclass</em> consists the three fully connected layers with the ReLU activation and dropout operation. Final output is 1000 as it denotes the 1000 classes.</p>
+
 </div>
 </div>
 </div>
@@ -256,23 +259,23 @@ window.onload = wrap_img;
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">alexnet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            
+            <span class="c1">#Layer 1</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="c1">#Convolution</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span><span class="c1">#Activation Function</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">LocalResponseNorm</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="c1">#Normalisation</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="c1">#MaxPooling</span>
-            
+            <span class="c1">#Layer 2</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">LocalResponseNorm</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-            
+            <span class="c1">#Layer 3</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">256</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            
+            <span class="c1">#Layer 4</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">384</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            
+            <span class="c1">#Layer 5</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">384</span> <span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>   
@@ -280,15 +283,15 @@ window.onload = wrap_img;
 
         
         <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            
+            <span class="c1">#Layer 6</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">6</span><span class="p">),</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            
+            <span class="c1">#Layer 7</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            
+            <span class="c1">#Layer 8</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">num_classes</span><span class="p">)</span>
         <span class="p">)</span>
 
@@ -473,6 +476,14 @@ Estimated Total Size (MB): 253.27
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice the size of model, total trainable models and parameter size. This can be compared with LeNet Classifier in my previous post <a href="https://pr2tik1.github.io/blog/pytorch/cnn/pca/t-sne/image%20classification/computer%20vision/2020/09/08/Sketch-Recognition.html#2.1.3.-Model-Summary">here</a>.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
