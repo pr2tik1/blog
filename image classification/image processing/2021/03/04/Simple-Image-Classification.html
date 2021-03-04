@@ -9,8 +9,8 @@
 <meta property="og:title" content="Understanding Image Classification without Neural Networks" />
 <meta name="author" content="Pratik Kumar" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Simple explanation of Image classification with easy model and images." />
-<meta property="og:description" content="Simple explanation of Image classification with easy model and images." />
+<meta name="description" content="Explanation of Image classification without use of neural networks and fancy models." />
+<meta property="og:description" content="Explanation of Image classification without use of neural networks and fancy models." />
 <link rel="canonical" href="https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html" />
 <meta property="og:url" content="https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html" />
 <meta property="og:site_name" content="Pratik’s Blog" />
@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-04T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html","@type":"BlogPosting","headline":"Understanding Image Classification without Neural Networks","dateModified":"2021-03-04T00:00:00-06:00","datePublished":"2021-03-04T00:00:00-06:00","image":"https://pr2tik1.github.io/blog/images/3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Simple explanation of Image classification with easy model and images.","@context":"https://schema.org"}</script>
+{"url":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html","@type":"BlogPosting","headline":"Understanding Image Classification without Neural Networks","dateModified":"2021-03-04T00:00:00-06:00","datePublished":"2021-03-04T00:00:00-06:00","image":"https://pr2tik1.github.io/blog/images/3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Explanation of Image classification without use of neural networks and fancy models.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pr2tik1.github.io/blog/feed.xml" title="Pratik's Blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -79,7 +79,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Understanding Image Classification without Neural Networks</h1><p class="page-description">Simple explanation of Image classification with easy model and images.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-04T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Understanding Image Classification without Neural Networks</h1><p class="page-description">Explanation of Image classification without use of neural networks and fancy models.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-04T00:00:00-06:00" itemprop="datePublished">
         Mar 4, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,7 +781,7 @@ Sum of Convolution:  1.0
 <hr>
 <p>We now finally understand how image classification works with such a simple example. There must be question like, where are those complex CNNs? Why not use them directly? — The above mentioned operations are the building blocks of the neural network architectures. Note this is not directly correlated to neural networks, but it does give an intuition of how things work. The discussed technique is simply passing processed matrices to a function, that yields score.</p>
 <p>Neural Networks contain "neurons" stacked together to form "layers". Generally, several neural network architecture has large number of layers connected to each other with operations. These "neurons" are simply function that performs operations and fire result to neurons of other layers. The "classify_img" function can be considered as a single neuron that takes input as 3x3 image array and returns the score. Based on the score we understand which class does the image falls in. A single neuron looks like the figure(3). Then stacking them all together into layers yield a neural network architecture as figure(4).</p>
-<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/nn.jpeg?raw=1" alt="" title="Figure(3)">
+<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/nn.jpg?raw=1" alt="" title="Figure(3)">
 <img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/nn_full.png?raw=1" alt="" title="Figure(4)"></p>
 <p>Next step would be exploring how a multi-layered perceptron or a simple neural network with, input-hidden-output layer, works. I have written few posts shared below in references.</p>
 <p>This was my attempt to explain image classification with simplest example. Note my intent was to make reader understand image classification and not to confuse image processing with computer vision. To draw clear line, Image processing comes under computer vision as a pre-processing or post-processiong steps. The computer vision task is wide and covers object detection, image segmentation and more complex problems. The post shows that classifying images without neural networks can be done using image processing and convolution operation.</p>
