@@ -11,14 +11,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Simple explanation of Image classification with easy model and images." />
 <meta property="og:description" content="Simple explanation of Image classification with easy model and images." />
-<link rel="canonical" href="https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html" />
-<meta property="og:url" content="https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html" />
+<link rel="canonical" href="https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html" />
+<meta property="og:url" content="https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html" />
 <meta property="og:site_name" content="Pratik’s Blog" />
 <meta property="og:image" content="https://pr2tik1.github.io/blog/images/3.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-04T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html","@type":"BlogPosting","headline":"Understanding Image Classification without Neural Networks","dateModified":"2021-03-04T00:00:00-06:00","datePublished":"2021-03-04T00:00:00-06:00","image":"https://pr2tik1.github.io/blog/images/3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Simple explanation of Image classification with easy model and images.","@context":"https://schema.org"}</script>
+{"url":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html","@type":"BlogPosting","headline":"Understanding Image Classification without Neural Networks","dateModified":"2021-03-04T00:00:00-06:00","datePublished":"2021-03-04T00:00:00-06:00","image":"https://pr2tik1.github.io/blog/images/3.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html"},"author":{"@type":"Person","name":"Pratik Kumar"},"description":"Simple explanation of Image classification with easy model and images.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pr2tik1.github.io/blog/feed.xml" title="Pratik's Blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -97,7 +97,7 @@ window.onload = wrap_img;
         <a class="category-tags-link" href="/blog/categories/#Image Classification">Image Classification</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/blog/categories/#Computer Vision">Computer Vision</a>
+        <a class="category-tags-link" href="/blog/categories/#Image Processing">Image Processing</a>
         
       
       </p>
@@ -134,7 +134,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#E.1.-Model">E.1. Model </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#7.-Testing">7. Testing </a></li>
+<li class="toc-entry toc-h2"><a href="#(F)-Testing">(F) Testing </a></li>
 <li class="toc-entry toc-h2"><a href="#Conclusion">Conclusion </a></li>
 <li class="toc-entry toc-h2"><a href="#References-and-Resources-to-check">References and Resources to check </a></li>
 <li class="toc-entry toc-h1"><a href="#Thankyou">Thankyou </a></li>
@@ -161,8 +161,7 @@ window.onload = wrap_img;
 <li>Python (Function, modules)</li>
 </ul>
 <p>Our task is to classify images into two classes: Horizontal or Vertical. We will have images with horizontal lines or vertical lines, as shown below,</p>
-<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/unnamed.png?raw=1" alt="">
-<img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/Horiz-line.jpeg?raw=1" alt=""></p>
+<p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/joined.jpg?raw=1" alt="" title="Left Image: Vertical and Right Image: Horizontal"></p>
 <p>The problem can be noted as <strong>Binary Image Classification</strong>. "Binary", since two classes. We will not be creating any neural network architecture. The approach is to follow certain image processing operations.</p>
 
 </div>
@@ -238,6 +237,7 @@ window.onload = wrap_img;
 <h2 id="(D)-Image-Processing:">
 <a class="anchor" href="#(D)-Image-Processing:" aria-hidden="true"><span class="octicon octicon-link"></span></a>(D) Image Processing:<a class="anchor-link" href="#(D)-Image-Processing:"> </a>
 </h2>
+<hr>
 <p>Now as we are ready with our data, let's start coding! Below are operations ranging from reading, viewing, normalizing and more.</p>
 
 </div>
@@ -556,6 +556,7 @@ Horizontal Falttened [0. 0. 0. 1. 1. 1. 0. 0. 0.]
 <h2 id="(E)-Creating-Image-Classifier">
 <a class="anchor" href="#(E)-Creating-Image-Classifier" aria-hidden="true"><span class="octicon octicon-link"></span></a>(E) Creating Image Classifier<a class="anchor-link" href="#(E)-Creating-Image-Classifier"> </a>
 </h2>
+<hr>
 <p>After above operations like falttening, normalization, we now create our final image classifier as a function below. Note this is not a neural network, which will be discussed later. We also import two test images : test1.jpg and test2.jpg for checking our model.</p>
 <p>To recap, we have seen vertical and horizontal images of 3x3 pixels. Then we changed them into arrays of intensity values. Then we performed normalization and flattening. We now create function that would perform these operations. The function after these preprocessing steps need a decision rule for image to be classified as 'vertical' or 'horizontal'.</p>
 <p>The rule is defined by use of two more operations: <strong>convolution</strong> and <strong>summation</strong>. The <strong>convolution</strong> operation is simply taking a filter(matrix with a fixed value) and multiplying it with the image matrix (in this case flattened matrices). Further, <strong>summation</strong> of the matrix values will give an integer whose value will decide the class image falls in.</p>
@@ -627,8 +628,8 @@ Horizontal Falttened [0. 0. 0. 1. 1. 1. 0. 0. 0.]
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="7.-Testing">
-<a class="anchor" href="#7.-Testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Testing<a class="anchor-link" href="#7.-Testing"> </a>
+<h2 id="(F)-Testing">
+<a class="anchor" href="#(F)-Testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>(F) Testing<a class="anchor-link" href="#(F)-Testing"> </a>
 </h2>
 <p>After we have coded our model, we now test it. The following is a test and it's result. To verify match the output for corresponding images with plot below.</p>
 
@@ -772,6 +773,7 @@ Sum of Convolution:  1.0
 <h2 id="Conclusion">
 <a class="anchor" href="#Conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion<a class="anchor-link" href="#Conclusion"> </a>
 </h2>
+<hr>
 <p>We now finally understand how image classification works with such a simple example. There must be question like, where are those complex CNNs? Why not use them directly? — The above mentioned operations are the building blocks of the neural network architectures. Note this is not directly correlated to neural networks, but it does give an intuition of how things work. The discussed technique is simply passing processed matrices to a function, that yields score.</p>
 <p>Neural Networks contain "neurons" stacked together to form "layers". Generally, several neural network architecture has large number of layers connected to each other with operations. These "neurons" are simply function that performs operations and fire result to neurons of other layers. The "classify_img" function can be considered as a single neuron that takes input as 3x3 image array and returns the score. Based on the score we understand which class does the image falls in. A single neuron looks like the figure(3). Then stacking them all together into layers yield a neural network architecture as figure(4).</p>
 <p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/images/nn.jpeg?raw=1" alt="" title="Figure(3)">
@@ -820,8 +822,8 @@ Sum of Convolution:  1.0
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html';
-      this.page.identifier = 'https://pr2tik1.github.io/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html';
+      this.page.url = 'https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html';
+      this.page.identifier = 'https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html';
     };
     (function() {
       var d = document, s = d.createElement('script');
@@ -831,7 +833,7 @@ Sum of Convolution:  1.0
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<a class="u-url" href="/blog/image%20classification/computer%20vision/2021/03/04/Simple-Image-Classification.html" hidden></a>
+<a class="u-url" href="/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
