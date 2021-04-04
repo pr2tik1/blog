@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://pr2tik1.github.io/blog/pytorch/cnn/pca/t-sne/image%20classification/computer%20vision/2020/09/08/Sketch-Recognition.html</loc>
+<loc>https://pr2tik1.github.io/blog/python/pytorch/cnn/pca/t-sne/image%20classification/computer%20vision/2020/09/08/Sketch-Recognition.html</loc>
 <lastmod>2020-09-08T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://pr2tik1.github.io/blog/pytorch/cnn/image%20classification/computer%20vision/2021/02/28/CNN-Series-AlexNet-Implementation.html</loc>
-<lastmod>2021-02-28T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://pr2tik1.github.io/blog/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html</loc>
+<loc>https://pr2tik1.github.io/blog/python/image%20classification/image%20processing/2021/03/04/Simple-Image-Classification.html</loc>
 <lastmod>2021-03-04T00:00:00-06:00</lastmod>
 </url>
 <url>
