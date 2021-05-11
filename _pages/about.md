@@ -7,15 +7,13 @@ permalink: /about/
 
 ![profile](profile-image.png)
 
-Pratik Kumar is a NIT Raipur graduate, having received his Bachelor’s in Electronics and Communication Engineering in June, 2020. He was formerly at Bayer Cropscience (Monsanto Holdings Pvt. Ltd., Bengaluru) as a data science intern. As a learner and developer, he has done extensive projects that range from optimization of microwave patch antennas to computer vision. You can view his blogs published on Medium, [here](https://medium.com/@pr2tik1). Currently, he is looking for opportunities in data science and deep learning.
-
+Pratik Kumar is a NIT Raipur graduate, having received his Bachelor’s in Electronics and Communication Engineering in June, 2020. Walk through his work experience and projects [here](https://pr2tik1.github.io). As a learner and developer, he has done extensive projects that range from data science to computer vision. You can also view his blogs published on Medium, [here](https://medium.com/@pr2tik1). 
 <br>
 
 ### Contact me
 
 - [Website](https://pr2tik1.github.io/)  
 - pr2tik1@gmail.com 
-
 
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)**. Thanks to creators of fastpages. 
