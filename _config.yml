@@ -81,6 +81,7 @@ include:
 # This specifies what badges are turned on by default for notebook posts.
 default_badges:
   colab: true
+  github: true
 
 # Escape HTML in post descriptions
 html_escape:
