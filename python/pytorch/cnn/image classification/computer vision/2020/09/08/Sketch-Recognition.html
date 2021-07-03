@@ -115,7 +115,13 @@ window.onload = wrap_img;
     
       
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
-          
+          <div class="px-2">
+
+    <a href="https://github.com/pr2tik1/blog/tree/master/_notebooks/2020-09-08-Sketch-Recognition.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
           
           <div class="px-2">
     <a href="https://colab.research.google.com/github/pr2tik1/blog/blob/master/_notebooks/2020-09-08-Sketch-Recognition.ipynb" target="_blank">
@@ -177,9 +183,8 @@ window.onload = wrap_img;
 <a class="anchor" href="#1.-Introduction-%E2%98%95%EF%B8%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. <strong>Introduction</strong> ☕️<a class="anchor-link" href="#1.-Introduction-%E2%98%95%EF%B8%8F"> </a>
 </h2>
 <hr>
-<p>In this notebook I have implemented a modified version of LeNet-5, which is a neural network model that consists convolutional layers and was designed for classifying handwritten digit characters(MNIST). But instead of classifying the over-used handwritten digits(MNIST) dataset, we will be using the Quick Draw Doodle Datasets by Google. The dataset is present in tensorflow datasets. Hence we will be loading it from there, for which <i><b>tensorflow</b></i> latest version is required.</p>
 <p>The post aims to discuss and explore Multi-Class Image Classification using CNN implemented in <i><b>PyTorch</b></i> Framework. The jupyter-notebook blog post comes with direct code and output all at one place. All thanks to creators of <b>fastpages</b>!</p>
-<p>Try Quick Draw by yourself <a href="https://quickdraw.withgoogle.com">here</a>!</p>
+<p>In this notebook I have implemented a modified version of LeNet-5, which is a neural network model that consists convolutional layers and was designed for classifying handwritten digit characters(MNIST). But instead of classifying the over-used handwritten digits(MNIST) dataset, we will be using the Quick Draw Doodle Datasets by Google. The dataset is present in tensorflow datasets. Hence we will be loading it from there, for which <i><b>tensorflow</b></i> latest version is required. Try Quick Draw by yourself <a href="https://quickdraw.withgoogle.com">here</a>!</p>
 <p><img src="https://github.com/pr2tik1/blog/blob/master/_notebooks/quick-draw/preview.jpg?raw=1" alt=""></p>
 
 </div>
@@ -264,7 +269,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">download</span><span class="p">()</span> 
 </pre></div>
 
     </div>
