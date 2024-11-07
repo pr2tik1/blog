@@ -1,3 +1,3 @@
-# Personal Blog
+# Portfolio
 
-This repo contains all the posts that are published using Quarto. 
+Personal Blog Page built from scratch using QUARTO.
